@@ -1,6 +1,6 @@
-CREATE database ecommerce;
+CREATE database papelaria_virtual;
 
-USE ecommerce;
+USE papelaria_virtual;
 
 CREATE TABLE produtos(
 	id BIGINT AUTO_INCREMENT,
@@ -19,13 +19,34 @@ VALUES ('Lápiseira', 300, 10.99, 'Lapiseira ponta 0.3'),
                 ('Lapis de cor', 280, 9.99, 'Caixa com 12 lápis'),
                 ('Giz de cera colorido', 427, 6.99, 'Caixa com 12 giz'),
                 ('Borracha', 1060, 3.99, 'Borracha com duas cores'),
-                ('Caneta Bic', 10000, 1.99, 'Caneta Azul Bic');
+                ('Caneta Bic', 10000, 1.99, 'Caneta Azul Bic'),
+                ('Caneta Edição Limitada', 1, 5000.00, 'Uma caneta mágica');
     
-SELECT * FROM produtos;
+SELECT nome, quantidade, CONCAT('R$ ', FORMAT(preco, 2, 'pt_BR')) AS preco_ , 
+descricao 
+FROM produtos;
+ 
+ --
+ 
+SELECT nome, quantidade, CONCAT('R$ ', FORMAT(preco, 2, 'pt_BR')) AS preco_ , 
+descricao 
+FROM produtos WHERE preco > 500;
+
+--
+
+SELECT nome, quantidade, 
+CONCAT('R$ ', FORMAT(preco, 2, 'pt_BR')) AS preco_ , 
+descricao 
+FROM produtos WHERE preco < 500;
+
+--
 
 UPDATE produtos SET preco = 501.99 WHERE id = 4;
- 
-SELECT * FROM produtos WHERE preco > 500;
-SELECT * FROM produtos WHERE preco < 500;
+
+--
+
+SELECT nome, quantidade, CONCAT('R$ ', FORMAT(preco, 2, 'pt_BR')) AS preco_ , 
+descricao 
+FROM produtos;
  
  
